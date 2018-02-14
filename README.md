@@ -1,6 +1,8 @@
 # shareYourThoughts
 Source code for blog posting website
 
+REST APIs 
+
 | Title                           	| URL                                           	| Method 	| Response Code                                               	| Params / Data                                                                           	|
 |---------------------------------	|-----------------------------------------------	|--------	|---------------------------------------------------------	|-----------------------------------------------------------------------------------------	|
 | List all posts for visitor      	| /rest/syt/                                    	| GET    	| 200 OK <br>404 Not found                                    	|                                                                                         	|
@@ -16,3 +18,5 @@ Source code for blog posting website
 | Post new comment                	| /rest/syt/user/{userid}/post/{postid}/comment 	| POST   	| 201 Created<br>401 Unauthorized<br>400 Bad request<br>404 Not found 	| {commenting_user,comment_text}                                                          	|
 | Get rating for post             	| /rest/syt/user/{userid}/post/{postid}/rating  	| GET    	| 200 OK<br>404 Not found                                     	|                                                                                         	|
 | Post / Update rating for a post 	| /rest/syt/user/{userid}/post/{postid}/rating  	| POST   	| 201 Created<br>401 Unauthorized<br>400 Bad request<br>404 Not found 	| {rating: <1 .. 5>}                                                                      	|
+
+Note: All the 201 Created reponse are accompanied by new created resource location. 

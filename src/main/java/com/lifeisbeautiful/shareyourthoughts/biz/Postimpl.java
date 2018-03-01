@@ -1,5 +1,6 @@
 package com.lifeisbeautiful.shareyourthoughts.biz;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -61,4 +62,8 @@ public class Postimpl implements IPost {
 
 	}
 
+	public List<PostEntity> getRecentPosts (int limit ) {
+		// TODO
+		return new ArrayList<>();
+	}
 }

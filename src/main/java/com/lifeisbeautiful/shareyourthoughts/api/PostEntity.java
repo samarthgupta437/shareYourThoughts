@@ -11,7 +11,7 @@ import javax.persistence.Id;
 public class PostEntity {
 	
 	@Id @GeneratedValue
-	private int postId;
+	private int id;
 	
 	private String title;
 	
@@ -25,12 +25,22 @@ public class PostEntity {
 	
 	private int rating;
 	
+	private long numberOfRatingProvider;
+	
+	public long getNumberOfRatingProvider() {
+		return numberOfRatingProvider;
+	}
+
+	public void setNumberOfRatingProvider(long numberOfRatingProvider) {
+		this.numberOfRatingProvider = numberOfRatingProvider;
+	}
+
 	public int getPostId() {
-		return postId;
+		return id;
 	}
 
 	public void setPostId(int postId) {
-		this.postId = postId;
+		this.id = postId;
 	}
 
 	public String getTitle() {

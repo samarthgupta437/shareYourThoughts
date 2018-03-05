@@ -72,6 +72,10 @@ public class Postimpl implements IPost {
 
 	}
 
+	public List<PostEntity> getRecentPosts (int limit ) {
+		// TODO
+		return new ArrayList<>();
+	}
 	@Override
 	public void addRating(int postId, int newRating) throws PostNotFoundException, InvalidRatingValueException {
 		int currentRating = postDao.getCurrentRatingForPostById(postId);

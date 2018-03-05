@@ -53,4 +53,9 @@ public class UserImpl implements IUser {
 		// TODO Auto-generated method stub
 		
 	}
+
+	public UserEntity getUserById(int userId) {
+		// TODO Auto-generated method stub
+		return new UserEntity();
+	}
 }

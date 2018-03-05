@@ -12,6 +12,11 @@ public class CommentEntity {
 	@Id @GeneratedValue
 	private long commentId;
 	
+	private String content;
+	
+	private UserEntity user;
+	
+	private Date createTime;
 	public long getCommentId() {
 		return commentId;
 	}
@@ -43,11 +48,5 @@ public class CommentEntity {
 	public void setCreateTime(Date createTime) {
 		this.createTime = createTime;
 	}
-
-	private String content;
-	
-	private UserEntity user;
-	
-	private Date createTime;
 
 }

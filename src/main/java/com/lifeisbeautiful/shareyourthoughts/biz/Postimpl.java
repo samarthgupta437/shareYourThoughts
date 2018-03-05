@@ -6,6 +6,7 @@ import java.util.Optional;
 
 import com.lifeisbeautiful.shareyourthoughts.api.IPost;
 import com.lifeisbeautiful.shareyourthoughts.api.InvalidContentException;
+import com.lifeisbeautiful.shareyourthoughts.api.InvalidRatingValueException;
 import com.lifeisbeautiful.shareyourthoughts.api.PostEntity;
 import com.lifeisbeautiful.shareyourthoughts.api.PostNotFoundException;
 import com.lifeisbeautiful.shareyourthoughts.api.SytException;
@@ -46,14 +47,23 @@ public class Postimpl implements IPost {
 
 	@Override
 	public PostEntity getPost(int postId) throws PostNotFoundException {
-		// TODO Auto-generated method stub
-		return null;
+		Optional<PostEntity> post = postDao.getPostById(postId);
+		if (!post.isPresent()) {
+			throw new PostNotFoundException("Post with Id: " + postId + " not found");
+		}
+		return post.get();
 	}
 
 	@Override
 	public List<PostEntity> search(String key) throws SytException {
-		// TODO Auto-generated method stub
-		return null;
+		List<PostEntity> allPosts = postDao.getAllPost();
+		List<PostEntity> searchMatchPosts = new ArrayList<>();
+		for (PostEntity post : allPosts) {
+			if (post.getTitle().contains(key)) {
+				searchMatchPosts.add(post);
+			}
+		}
+		return searchMatchPosts;
 	}
 
 	@Override
@@ -66,4 +76,13 @@ public class Postimpl implements IPost {
 		// TODO
 		return new ArrayList<>();
 	}
+	@Override
+	public void addRating(int postId, int newRating) throws PostNotFoundException, InvalidRatingValueException {
+		int currentRating = postDao.getCurrentRatingForPostById(postId);
+		long currentRatingProviderNumbers = postDao.currentRatingProviderNumber(postId);
+		int updatedRating = (int) (((currentRating * currentRatingProviderNumbers) + newRating) /  (currentRatingProviderNumbers +1));
+		postDao.setRatingForPost(postId, updatedRating);
+		postDao.setCurrentRatingProviderNumbers(postId, currentRatingProviderNumbers +1);
+	}
+
 }

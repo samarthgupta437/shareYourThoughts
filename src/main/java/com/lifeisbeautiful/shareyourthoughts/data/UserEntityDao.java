@@ -20,6 +20,9 @@ public class UserEntityDao {
 	private static final String GET_USER_BY_EMAIL = 
 			"Select user FROM UserEntity user WHERE user.email = :email" ;
 	
+	private static final String GET_USER_BY_ID = 
+			"Select user FROM UserEntity user WHERE user.id = :id" ;
+	
 	public Optional<String> getPassword(String email) {
 		  List<String> resultList = em.createQuery(GET_PASSWORD_FOR_EMAIL, String.class).setParameter("email", email).getResultList();
 		  if (resultList.isEmpty()) {
@@ -51,6 +54,15 @@ public class UserEntityDao {
 		em.persist(user);
 		em.getTransaction().commit();
 		em.close();
+	}
+
+	public Optional<UserEntity> getUserEntityById(long userId) {
+		List<UserEntity> userList = em.createQuery(GET_USER_BY_ID, UserEntity.class).setParameter("id", userId).getResultList();
+		if (userList.isEmpty()) {
+			return Optional.empty();
+		} else {
+			return Optional.of(userList.get(0));
+		}
 	}
 
 }

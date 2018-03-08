@@ -1,6 +1,7 @@
 package com.lifeisbeautiful.shareyourthoughts.biz;
 
 import java.util.List;
+import java.util.Optional;
 
 import com.lifeisbeautiful.shareyourthoughts.api.IUser;
 import com.lifeisbeautiful.shareyourthoughts.api.InvaidUserNamePasswordException;
@@ -9,6 +10,7 @@ import com.lifeisbeautiful.shareyourthoughts.api.PostEntity;
 import com.lifeisbeautiful.shareyourthoughts.api.UnauthorizedUserException;
 import com.lifeisbeautiful.shareyourthoughts.api.UserAlreadyExistsException;
 import com.lifeisbeautiful.shareyourthoughts.api.UserEntity;
+import com.lifeisbeautiful.shareyourthoughts.api.UserNotFoundException;
 import com.lifeisbeautiful.shareyourthoughts.data.PostEntityDao;
 import com.lifeisbeautiful.shareyourthoughts.data.UserEntityDao;
 import com.mysql.jdbc.StringUtils;
@@ -54,8 +56,13 @@ public class UserImpl implements IUser {
 		
 	}
 
-	public UserEntity getUserById(int userId) {
-		// TODO Auto-generated method stub
-		return new UserEntity();
+	@Override
+	public UserEntity getUserById(long userId) throws UserNotFoundException {
+		Optional<UserEntity> user = userDao.getUserEntityById(userId);
+		if (user.isPresent()) {
+			return user.get();
+		} else {
+			throw new UserNotFoundException("User with id: " + userId + " not found.");
+		}
 	}
 }

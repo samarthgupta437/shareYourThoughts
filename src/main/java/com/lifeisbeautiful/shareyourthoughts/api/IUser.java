@@ -9,4 +9,6 @@ public interface IUser {
 	public List<PostEntity> signInUser(String email, String password) throws InvaidUserNamePasswordException ;
 	
 	public void signOutUser(String email) ; 
+	
+	public UserEntity getUserById(long id) throws UserNotFoundException;
 }

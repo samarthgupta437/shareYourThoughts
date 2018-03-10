@@ -87,7 +87,6 @@ public class SYTRootResource {
 	public Response signInUser( UserEntity user) {
 		try {
 			List<PostEntity> userSpecificPosts = users.signInUser(user.getEmail(), user.getPassword());
-			users.addUser(user);
 			return Response.ok().entity(userSpecificPosts).build();
 		} catch (Exception e) {
 			throw new SytException();
@@ -97,7 +96,7 @@ public class SYTRootResource {
 
 	@POST
 	@Path("/users/{UserId}")
-	public Response signInUser( @PathParam("UserId") int userId) {
+	public Response signOutUser( @PathParam("UserId") int userId) {
 		try {
 			UserEntity author = users.getUserById(userId);
 			users.signOutUser(author.getEmail());
@@ -112,7 +111,6 @@ public class SYTRootResource {
 	@Path("/users/{userId}/posts/{postId}")
 	public Response getPost( @PathParam("userId") int userId, @PathParam("postId") int postId) {
 		try {
-			
 			PostEntity specificPost = posts.getPost(postId);
 			return Response.ok().entity(specificPost).build();
 		} catch (Exception e) {

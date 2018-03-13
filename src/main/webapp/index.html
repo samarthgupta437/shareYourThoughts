@@ -5,7 +5,7 @@
 <script type="text/javascript">
 	$(document).ready(function() {
 		$("#search_btn").bind("click", function() {
-			$.get("public/syt/v1/posts/" + $("#text").val(), function(post) {
+			$.get("syt/v1/posts/" + $("#text").val(), function(post) {
 				$("#post").html(post.title)
 			});
 		});
@@ -13,13 +13,13 @@
 </script>
 </head>
 <BODY>
-<p><img src="C:\Senthil\Training\CMAD\shareYourThoughts\src\main\webapp\banner.jpg" width="1600" height="300" /></p>
-<h1 style="text-align: center;">Share Your Thoughts</h1>
+<p><img src="C:\Senthil\Training\CMAD\BlogDev\shareYourThoughts\src\main\webapp\banner.jpg" width="1600" height="300" /></p>
+<!--  <h1 style="text-align: center;">Share Your Thoughts</h1>-->
 	<input id='text' placeholder="Search Blogs">
 	<button id="search_btn">Go!</button>
 	<span id='posts'></span>
-<p style="padding-left: 570px; text-align: right;"><a href="login.html" target="_blank" rel="noopener"><button id="sign_up_btn">Sign Up</button></a></p>
-<p style="padding-left: 570px; text-align: right;"><a href="http://www.google.com" target="_blank" rel="noopener"><button id="sign_up_btn">Sign In</button></a></p>
+<p style="padding-left: 570px; text-align: right;"><a href="signup.html" target="_blank" rel="noopener"><button id="sign_up_btn">Sign Up</button></a></p>
+<p style="padding-left: 570px; text-align: right;"><a href="login.html" target="_blank" rel="noopener"><button id="sign_in_btn">Sign In</button></a></p>
 <table style="margin-left: auto; margin-right: auto;">
 <tbody>
 <tr>

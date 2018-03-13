@@ -17,6 +17,7 @@ public class CommentEntity {
 	private UserEntity user;
 	
 	private Date createTime;
+
 	public long getCommentId() {
 		return commentId;
 	}

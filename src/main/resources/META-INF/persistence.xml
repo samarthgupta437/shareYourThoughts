@@ -6,10 +6,10 @@
 	<persistence-unit name="shareyourthoughts" transaction-type="RESOURCE_LOCAL">
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
 		<properties>
-			<property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/cmad" />
+			<property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/syt" />
 			<property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver" />
 			<property name="hibernate.connection.username" value="root" />
-			<property name="hibernate.connection.password" value="aaru1551" />
+			<property name="hibernate.connection.password" value="root" />
 			<property name="hibernate.hbm2ddl.auto" value="update" />
 			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
 			<property name="hibernate.show_sql" value="true" />

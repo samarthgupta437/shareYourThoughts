@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 @Entity
@@ -24,6 +25,9 @@ public class PostEntity {
 	
 	private Date lastUpdated;
 	
+	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	private UserEntity author;
+
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private List<CommentEntity> comments;
 	
@@ -102,7 +106,4 @@ public class PostEntity {
 	public void setAuthor(UserEntity author) {
 		this.author = author;
 	}
-
-	private UserEntity author;
-
 }

@@ -23,7 +23,7 @@ import com.lifeisbeautiful.shareyourthoughts.biz.CommentImpl;
 import com.lifeisbeautiful.shareyourthoughts.biz.Postimpl;
 import com.lifeisbeautiful.shareyourthoughts.biz.UserImpl;
 
-@Path("/syt/v1")
+@Path("/v1")
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces({ MediaType.APPLICATION_JSON })
 public class SYTRootResource {
@@ -33,12 +33,12 @@ public class SYTRootResource {
 	private UserImpl users = new UserImpl();
 
 	private CommentImpl comments = new CommentImpl();
-	
+	 
 	@GET
-	@Path("/recentPosts")
+	@Path("/recentPosts")  
 	public Response getRecentPosts( ) {
 		try {
-			System.out.println("Getting recent posts");
+			System.out.println("Getting recent posts");     
 			List<PostEntity> recentPosts = posts.getRecentPosts(10);
 			return Response.ok().entity(recentPosts).build();
 		} catch (Exception e) {
@@ -48,15 +48,14 @@ public class SYTRootResource {
 	}
 
 	@GET
-	@Path("/posts/{postId}")
+	@Path("/posts/{postId}")     
 	public Response getPost( @PathParam("postId") int postId) {
-		try {
+		try {  
 			PostEntity specificPost = posts.getPost(postId);
 			return Response.ok().entity(specificPost).build();
 		} catch (Exception e) {
 			throw new SytException();
 		}
-
 	}
 
 	@GET

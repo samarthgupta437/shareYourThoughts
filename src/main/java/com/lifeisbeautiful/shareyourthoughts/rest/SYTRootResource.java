@@ -35,9 +35,10 @@ public class SYTRootResource {
 	private CommentImpl comments = new CommentImpl();
 	
 	@GET
-	@Path("/posts")
+	@Path("/recentPosts")
 	public Response getRecentPosts( ) {
 		try {
+			System.out.println("Getting recent posts");
 			List<PostEntity> recentPosts = posts.getRecentPosts(10);
 			return Response.ok().entity(recentPosts).build();
 		} catch (Exception e) {
@@ -60,7 +61,7 @@ public class SYTRootResource {
 
 	@GET
 	@Path("/posts")
-	public Response getPost( @QueryParam("key") @DefaultValue("") String key) {
+	public Response findPost( @QueryParam("key") @DefaultValue("") String key) {
 		try {
 			List<PostEntity> matchedPosts = posts.search(key);
 			return Response.ok().entity(matchedPosts).build();
@@ -83,10 +84,11 @@ public class SYTRootResource {
 	}
 
 	@POST
-	@Path("/users")
-	public Response signInUser( UserEntity user) {
+	@Path("/users/login")
+	public Response signInUser( @PathParam("email") String email, 
+			@PathParam("password") String password) {
 		try {
-			List<PostEntity> userSpecificPosts = users.signInUser(user.getEmail(), user.getPassword());
+			List<PostEntity> userSpecificPosts = users.signInUser(email, password);
 			return Response.ok().entity(userSpecificPosts).build();
 		} catch (Exception e) {
 			throw new SytException();
@@ -109,8 +111,9 @@ public class SYTRootResource {
 
 	@GET
 	@Path("/users/{userId}/posts/{postId}")
-	public Response getPost( @PathParam("userId") int userId, @PathParam("postId") int postId) {
+	public Response getUserPost( @PathParam("userId") int userId, @PathParam("postId") int postId) {
 		try {
+			
 			PostEntity specificPost = posts.getPost(postId);
 			return Response.ok().entity(specificPost).build();
 		} catch (Exception e) {
@@ -157,7 +160,7 @@ public class SYTRootResource {
 	
 	@POST
 	@Path("/users/{userId}/posts/{postId}/comments")
-	public Response editUserPost ( @PathParam("userId") int userId, @PathParam("postId") int postId, CommentEntity comment) {
+	public Response addComment ( @PathParam("userId") int userId, @PathParam("postId") int postId, CommentEntity comment) {
 		try {
 			UserEntity author = users.getUserById(userId);
 			if (author != null) {

@@ -28,15 +28,15 @@ import com.lifeisbeautiful.shareyourthoughts.biz.UserImpl;
 @Produces({ MediaType.APPLICATION_JSON })
 public class SYTRootResource {
 	
-	private Postimpl posts = new Postimpl();
+	private Postimpl posts = new Postimpl();   
 
 	private UserImpl users = new UserImpl();
 
 	private CommentImpl comments = new CommentImpl();
 	 
 	@GET
-	@Path("/recentPosts")  
-	public Response getRecentPosts( ) {
+	@Path("/recentPosts")   
+	public Response getRecentPosts() {
 		try {
 			System.out.println("Getting recent posts");     
 			List<PostEntity> recentPosts = posts.getRecentPosts(10);
@@ -48,7 +48,7 @@ public class SYTRootResource {
 	}
 
 	@GET
-	@Path("/posts/{postId}")     
+	@Path("/posts/{postId}")
 	public Response getPost( @PathParam("postId") int postId) {
 		try {  
 			PostEntity specificPost = posts.getPost(postId);

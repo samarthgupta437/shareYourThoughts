@@ -36,6 +36,8 @@ public class PostEntity {
 	private long numberOfRatingProvider;
 	
 	public long getNumberOfRatingProvider() {
+		
+		
 		return numberOfRatingProvider;
 	}
 

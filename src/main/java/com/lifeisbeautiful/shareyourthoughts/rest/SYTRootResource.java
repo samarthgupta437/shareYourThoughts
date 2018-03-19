@@ -50,6 +50,8 @@ public class SYTRootResource {
 	@GET
 	@Path("/posts/{postId}")
 	public Response getPost( @PathParam("postId") int postId) {
+		
+		
 		try {  
 			PostEntity specificPost = posts.getPost(postId);
 			return Response.ok().entity(specificPost).build();

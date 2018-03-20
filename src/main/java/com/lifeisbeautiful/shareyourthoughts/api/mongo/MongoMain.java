@@ -31,7 +31,5 @@ public class MongoMain {
 		p.setContent("blog data here");
 		p.setAuthor(u);
 		dao.save(p);
-
 	}
-
 }

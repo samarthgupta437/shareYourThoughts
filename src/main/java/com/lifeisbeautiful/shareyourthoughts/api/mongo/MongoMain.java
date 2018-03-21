@@ -15,21 +15,31 @@ public class MongoMain {
 		String databaseName = "blogtest";
 		Datastore datastore = morphia.createDatastore(mongoClient, databaseName);
 
-		UserDao udao = new UserDao(User.class, datastore);
-		User u = new User();
-		u.setEmail("myEmail");
-		u.setId(new ObjectId().toString());
-		u.setUserName("user1");
-		u.setPassword("new password");
-		udao.save(u);
-		
-		
 		PostDao dao = new PostDao(Post.class, datastore);
 		Post p = new Post();
-		p.setId(new ObjectId().toString());
-		p.setTitle("mytitle");
-		p.setContent("blog data here");
+		p.setTitle("new title");
+		p.setContent("new content");
+		UserDao udao = new UserDao(User.class, datastore);
+		User u = new User();
+		u.setId(new ObjectId().toString());
 		p.setAuthor(u);
 		dao.save(p);
+		
+//		UserDao udao = new UserDao(User.class, datastore);
+//		User u = new User();
+//		u.setEmail("myEmail");
+//		u.setId(new ObjectId().toString());
+//		u.setUserName("user1");
+//		u.setPassword("new password");
+//		udao.save(u);
+//		
+//		
+//		PostDao dao = new PostDao(Post.class, datastore);
+//		Post p = new Post();
+//		p.setId(new ObjectId().toString());
+//		p.setTitle("mytitle");
+//		p.setContent("blog data here");
+//		p.setAuthor(u);
+//		dao.save(p);
 	}
 }

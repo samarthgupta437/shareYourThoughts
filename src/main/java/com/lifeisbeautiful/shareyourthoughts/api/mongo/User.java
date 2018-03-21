@@ -12,6 +12,11 @@ public class User {
 	private String password;
 	private String email;
 	
+	public User() {};
+	public User(String id) {
+		this.id = id;
+	}
+	
 	//Getter Setter Start
 	public String getId() {
 		return id;

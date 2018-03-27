@@ -1,4 +1,20 @@
 # shareYourThoughts
+
+# Build Commands:
+    
+    docker build . -t samarthgupta437/syt
+    docker image push samarthgupta437/syt
+
+  - Above will create image with latest tag and upload to docker hub.
+
+# Start App:
+    docker-compose up -d
+- Above will start 2 containers. 1 for blogpost web app other for mongodb
+
+# UI and create post:
+    http://localhost:9090/syt/index.html
+
+
 Source code for blog posting website
 
 REST APIs 

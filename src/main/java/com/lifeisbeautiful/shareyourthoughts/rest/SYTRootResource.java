@@ -14,21 +14,21 @@ import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import com.lifeisbeautiful.shareyourthoughts.api.CommentEntity;
-import com.lifeisbeautiful.shareyourthoughts.api.PostEntity;
+//import com.lifeisbeautiful.shareyourthoughts.api.CommentEntity;
+//import com.lifeisbeautiful.shareyourthoughts.api.PostEntity;
 import com.lifeisbeautiful.shareyourthoughts.api.SytException;
 import com.lifeisbeautiful.shareyourthoughts.api.UnauthorizedUserException;
-import com.lifeisbeautiful.shareyourthoughts.api.UserEntity;
-import com.lifeisbeautiful.shareyourthoughts.biz.CommentImpl;
-import com.lifeisbeautiful.shareyourthoughts.biz.Postimpl;
-import com.lifeisbeautiful.shareyourthoughts.biz.UserImpl;
+//import com.lifeisbeautiful.shareyourthoughts.api.UserEntity;
+//import com.lifeisbeautiful.shareyourthoughts.biz.CommentImpl;
+//import com.lifeisbeautiful.shareyourthoughts.biz.Postimpl;
+//import com.lifeisbeautiful.shareyourthoughts.biz.UserImpl;
 
 @Path("/v1")
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces({ MediaType.APPLICATION_JSON })
 public class SYTRootResource {
 	
-	private Postimpl posts = new Postimpl();   
+	/*private Postimpl posts = new Postimpl();   
 
 	private UserImpl users = new UserImpl();
 
@@ -197,5 +197,5 @@ public class SYTRootResource {
 			throw new SytException();
 		}
 
-	}
+	}*/
 }

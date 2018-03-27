@@ -33,16 +33,7 @@
 			<artifactId>jersey-server</artifactId>
 			<version>1.19</version>
 		</dependency>
-		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-entitymanager</artifactId>
-			<version>4.2.1.Final</version>
-		</dependency>
-		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-			<version>5.1.35</version>
-		</dependency>
+		
 		<dependency>
 			<groupId>org.mongodb</groupId>
 			<artifactId>mongo-java-driver</artifactId>
@@ -53,15 +44,8 @@
 			<artifactId>morphia</artifactId>
 			<version>1.3.0</version>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/org.projectlombok/lombok-maven -->
-		<dependency>
-    			<groupId>org.projectlombok</groupId>
-    			<artifactId>lombok-maven</artifactId>
-    			<version>1.16.20.0</version>
-    			<type>pom</type>
-		</dependency>
 		
-	</dependencies>
+</dependencies>
 	<build>
 		<finalName>syt</finalName>
 		<plugins>
@@ -78,7 +62,7 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-war-plugin</artifactId>
 				<configuration>
-					<outputDirectory>/Users/samarth.gupta/Documents/work/apache-tomcat-8.0.49/webapps</outputDirectory>
+					<outputDirectory>/opt/</outputDirectory>
 				</configuration>
 			</plugin>
 		</plugins>

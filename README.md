@@ -9,7 +9,7 @@
 
 # Start App:
     docker-compose up -d
-- Above will start 2 containers. 1 for blogpost web app other for mongodb
+- Above will start 2 containers. One for blogpost web app other for mongodb
 
 # UI and create post:
     http://localhost:9090/syt/index.html

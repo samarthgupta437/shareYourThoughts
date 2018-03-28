@@ -45,7 +45,7 @@ class NewPost extends React.Component {
         .set('Access-Control-Allow-Methods', 'GET, POST, PATCH, PUT, DELETE, OPTIONS')
         .set('Access-Control-Allow-Headers', 'Origin, Content-Type, X-Auth-Token')
         .send(postData)
-        .end(function(err, res){
+        .end(function(err, res) {
         console.log(res.text);
 });  
 
@@ -54,10 +54,10 @@ class NewPost extends React.Component {
     render() {
         return (
             <div>
-            <label for="name">Blog Title</label> 
+            <label htmlFor="name">Blog Title</label> 
 	        <input name="name" type="text" size="100" defaultValue={this.state.title} onChange={this.updatetitle}/> <br /> 
-            <label for="name">Blog Content</label> <br />
-	        <textarea cols="200" rows="50" onChange={this.updatecontent}>{this.state.content}</textarea><br /> 
+            <label htmlFor="name">Blog Content</label> <br />
+	        <textarea cols="200" rows="50" onChange={this.updatecontent} defaultValue="<Write your blog here>" /><br /> 
             <button type="submit" value="Save" onClick={this.savepost}>Save</button>
             </div>
             );

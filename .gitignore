@@ -3,3 +3,5 @@ target/
 .project
 .settings/
 reactUI/node_modules/
+shareyourthoughts.iml
+.idea/

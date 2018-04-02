@@ -20,7 +20,7 @@ render() {
         <Router>
         <div>
             <h1>Syt Blog</h1>
-            <Link to="/">Home</Link> | <Link to="/signin">Sign In</Link> | <Link to="/signup">Sign Up</Link> |<Link to="/newpost">Write Blog</Link>
+            <Link to="/">Home</Link> | <Link to="/signin">Sign In</Link> | <Link to="/signup">Sign Up</Link> | <Link to="/newpost">Write Blog</Link>
             <hr/>
             <Route exact path="/" component={Home}/>
             <Route path="/signin" component={SignIn}/>

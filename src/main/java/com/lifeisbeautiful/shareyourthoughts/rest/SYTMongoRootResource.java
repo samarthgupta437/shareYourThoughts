@@ -17,8 +17,11 @@ import javax.ws.rs.core.Response;
 
 import com.lifeisbeautiful.shareyourthoughts.api.SytException;
 import com.lifeisbeautiful.shareyourthoughts.api.mongo.IPost;
+import com.lifeisbeautiful.shareyourthoughts.api.mongo.IUser;
 import com.lifeisbeautiful.shareyourthoughts.api.mongo.Post;
+import com.lifeisbeautiful.shareyourthoughts.api.mongo.User;
 import com.lifeisbeautiful.shareyourthoughts.biz.mongo.PostImpl;
+import com.lifeisbeautiful.shareyourthoughts.biz.mongo.UserImpl;
 
 @Path("/v2")
 @Consumes(MediaType.APPLICATION_JSON)
@@ -26,12 +29,23 @@ import com.lifeisbeautiful.shareyourthoughts.biz.mongo.PostImpl;
 public class SYTMongoRootResource {
 	
 	private IPost postManager = new PostImpl();
+	private IUser userManager = new UserImpl();
 	
 	@POST
 	@Path("/users/{userId}/posts")
 	public Response addUserPost (@PathParam("userId") String userId, Post post) {
 		try {
 			return Response.created(new URI(postManager.addPost(userId, post))).build();
+		} catch (Exception e) {
+			throw new SytException();
+		} 
+	}
+	
+	@POST
+	@Path("/users")
+	public Response signUpUser(User user) {
+		try {
+			return Response.created(new URI(userManager.add(user))).build();
 		} catch (Exception e) {
 			throw new SytException();
 		} 
@@ -46,6 +60,5 @@ public class SYTMongoRootResource {
 		} catch (Exception e) {
 			throw new SytException();
 		}
-
 	}
 }

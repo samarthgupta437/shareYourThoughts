@@ -46,7 +46,7 @@ class NewPost extends React.Component {
         .set('Access-Control-Allow-Headers', 'Origin, Content-Type, X-Auth-Token')
         .send(postData)
         .end(function(err, res) {
-        console.log(res.text);
+        console.log("res.header[location]" + res.header['location']);
 });  
 
     }
